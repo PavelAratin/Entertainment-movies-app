@@ -1,0 +1,27 @@
+@import 'variables.scss';
+.header{
+  background-color: $color-semi-dark-blue;
+  width: 100px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  max-height: 960px;
+  &__logo{
+    margin-bottom: 80px;
+  }
+  &__button{
+    display: block;
+    width: 38px;
+    height: 38px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-top: auto;
+    cursor: pointer;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
