@@ -1,0 +1,39 @@
+@import 'variables';
+.form{
+  width: 100%;
+  min-width: 300px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  &__button{
+    background: transparent;
+    cursor: pointer;
+    svg{
+      display: block;
+      fill: $color-white;
+      transition: fill 0.2s linear;
+      &:hover{
+        fill: $color-red;
+      }
+    }
+  }
+  input{
+    width: 100%;
+    outline: none;
+    font-size: $font-size-heading-m;
+    color: $color-white;
+    background-color: transparent;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+
+    &:hover{
+      border-bottom: 1px solid $color-greyish-blue;
+    }
+    &:focus{
+      border-bottom: 1px solid $color-greyish-blue;
+    }
+  }
+}
