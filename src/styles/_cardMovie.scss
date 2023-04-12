@@ -1,0 +1,67 @@
+.card-movie{
+  cursor: pointer;
+  &__imgbox{
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    &--trending{
+      height: 300px;
+    }
+  }
+  &__img{
+    transition: all 0.2s linear;
+  }
+  &:hover{
+    .card-movie__img{
+      transform: scale(1.1);
+    }
+    .card-movie__title{
+      color: $color-red;
+    }
+  }
+  &__list{
+    color: $color-white-rgba;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  }
+  &__item:not(:last-child){
+    margin-right: 20px;
+    position: relative;
+    &::after{
+      content: "";
+      position: absolute;
+      display: block;
+      top: 7px;
+      right: -10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 100%;
+      background-color: $color-white-rgba;
+    }
+  }
+  &__favorites{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: $color-black-rgba;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    &:hover{
+      svg{
+        fill: $color-white;
+      }
+    }
+    svg{
+      transition: all 0.2s linear;
+      fill: transparent;
+    }
+  }
+}
+

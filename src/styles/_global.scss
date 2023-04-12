@@ -5,7 +5,7 @@
 }
 body{
   margin: 0;
-  font-family: 'Outfit';
+  font-family: 'Outfit',sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: $font-size-body-m;
@@ -39,6 +39,9 @@ a{
 img{
   display: block;
 }
+input{
+  font-family: inherit;
+}
 main{
   width: 100%;
 }
@@ -47,6 +50,15 @@ main{
   display: flex;
   padding: 20px;
   gap: 30px;
+}
+.title-h2{
+  color: $color-white;
+  font-size: $font-size-heading-l;
+  margin-bottom: 24px;
+}
+.title-h3{
+  font-size: $font-size-heading-m;
+  color: $color-white;
 }
 
 .nav{
