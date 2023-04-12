@@ -11,7 +11,7 @@ const TrendingSection = ({ dataTrendFilms }) => {
       <h2 className='title-h2'>Trending</h2>
       <Swiper
         spaceBetween={20}
-        slidesPerView={5.7}
+        slidesPerView={5.5}
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >

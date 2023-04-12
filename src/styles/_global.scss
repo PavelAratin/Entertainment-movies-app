@@ -43,10 +43,13 @@ input{
   font-family: inherit;
 }
 main{
-  width: 100%;
+  width: calc(100% - 120px);
+}
+section{
+  margin-bottom: 30px;
 }
 .site-container{
-  height: 100vh;
+  // height: 100vh;
   display: flex;
   padding: 20px;
   gap: 30px;
