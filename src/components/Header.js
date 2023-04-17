@@ -2,7 +2,7 @@
 const Header = () => {
   return (
     <header className="header">
-      <a className="header__logo" href="#">
+      <a className="header__logo" href="#" title="Домашняя страница">
         <img src="/assets/logo.svg" alt="Логотип сайта" />
       </a>
       <nav className="nav">

@@ -1,15 +1,14 @@
 import { useState } from "react";
-import CardMovie from "./CradMovie";
+import CardMovie from "./CradMoviePremier";
 
 const PremierSection = ({ dataFilms }) => {
   const [films, setFilms] = useState(dataFilms)
-  console.log(films.items);
   return (
     <section className="premier">
       <h2 className='title-h2'>Premiers</h2>
       <div className="premier__content">
-        {films.items.map((film) => (
-          <CardMovie film={film}></CardMovie>
+        {films.items.map((filmPremier,index) => (
+          <CardMovie filmPremier={filmPremier} key={index}></CardMovie>
         ))}
       </div>
     </section>

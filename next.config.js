@@ -5,7 +5,8 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'kinopoiskapiunofficial.tech',
+        hostname: '**',
+        // hostname: 'https://i.annihil.us',
         port: '',
         // pathname: 'images/posters/kp_small/**',
       },
