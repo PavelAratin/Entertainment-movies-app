@@ -2,7 +2,7 @@ import Form from "@/components/Form";
 import Header from "@/components/Header";
 import PremierSection from "@/components/PremierSection";
 import MarvelSection from "@/components/MarvelSection";
-import apiUrl from "@/utils/utilsApiMarvelUrl";
+import { getApiUrl } from "@/utils/utilsApiMarvelUrl";
 
 export default function Home({ dataMarvelCharacters }) {
   console.log('dataMarvelCharacters',dataMarvelCharacters);
@@ -21,7 +21,7 @@ export default function Home({ dataMarvelCharacters }) {
 }
 
 export async function getServerSideProps() {
-  const marvelCharactersRes = await fetch(apiUrl)
+  const marvelCharactersRes = await fetch(getApiUrl())
   const dataMarvelCharacters = await marvelCharactersRes.json();
   return {
     props: {

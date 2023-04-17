@@ -1,14 +1,14 @@
-import apiUrl from "@/utils/utilsApiMarvelUrl";
+import { getApiUrl } from "@/utils/utilsApiMarvelUrl";
 
-const MoveDetail = ({ dataFilmsDetail }) => {
-  console.log("detail",dataFilmsDetail);
+const MoveDetail = ({ characterDetail }) => {
+  console.log("detail",characterDetail.data.results[0].name);
   return (
     <div className="move-detail">
       <div className="move-detail__imgbox">
         <img src="#" alt="#" />
       </div>
       <div className="move-detail__content">
-        <h1 className="title-h1">название фильма</h1>
+        <h1 className="title-h1">{characterDetail.data.results[0].name}</h1>
         <p className="move-detail__description">информация о фильме</p>
       </div>
     </div>
@@ -17,24 +17,22 @@ const MoveDetail = ({ dataFilmsDetail }) => {
 
 export async function getStaticProps(context) {
   const id = context.params.id
-  const resFilms = await fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
-    headers: {
-      "X-API-KEY": "5b5541df-cf16-4a80-a315-4df0a301f83a",
-      'Content-Type': 'application/json',
-    }
-  })
-  const dataFilms = await resFilms.json();
+  console.log('id',id);
+  
+  const resCharacterDetail = await fetch(getApiUrl(id))
+  const dataCharacterDetail = await resCharacterDetail.json();
   return {
     props: {
-      dataFilmsDetail: dataFilms
+      characterDetail: dataCharacterDetail
     }
   }
 }
 
 export async function getStaticPaths() {
-  const marvelCharactersRes = await fetch(apiUrl)
+  const marvelCharactersRes = await fetch(getApiUrl())
   const marvelCharactersData = await marvelCharactersRes.json();
-  const paths = marvelCharactersData.items.map((marvelCharacter) => (
+  console.log('marvelCharactersData',marvelCharactersData);
+  const paths = marvelCharactersData.data.results.map((marvelCharacter) => (
     { params: { id: marvelCharacter.id.toString() } }
   ))
 
