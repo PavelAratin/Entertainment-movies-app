@@ -4,14 +4,12 @@ import { thumbnailPathChange } from "@/utils/utilsApiMarvelUrl";
 
 
 const MoveDetail = ({ characterDetail }) => {
-  console.log("detail", characterDetail.data.results[0]);
   return (
     <div className="move-detail">
       <div className="move-detail__imgbox">
         <Image
           width={600}
           height={600}
-          layout="instrinsic"
           src={thumbnailPathChange(characterDetail.data.results[0].thumbnail.path) + '.' + characterDetail.data.results[0].thumbnail.extension}
           alt="#"
         />

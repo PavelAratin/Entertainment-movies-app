@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { thumbnailPathChange } from "@/utils/utilsApiMarvelUrl";
 const CardMarvel = ({ marvelCharacter }) => {
-  console.log('marvelCharacter', marvelCharacter.thumbnail.path);
   return (
     <div className="card-movie">
       <div className="card-movie__imgbox card-movie__imgbox--trending">

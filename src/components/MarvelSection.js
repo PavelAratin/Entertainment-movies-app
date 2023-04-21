@@ -1,12 +1,10 @@
-import { useState } from 'react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
 import CardMarvel from './CradMarvel';
 // Import Swiper styles
 import 'swiper/css';
 
 const MarvelSection = ({ dataMarvelCharacters }) => {
-  const [marvelCharacters, setMarvelHaracters] = useState(dataMarvelCharacters)
-  console.log("dataMarvelCharacters",dataMarvelCharacters);
   return (
     <section className='trending'>
       <h2 className='title-h2'>Marvel movie</h2>
