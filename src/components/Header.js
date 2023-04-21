@@ -1,10 +1,11 @@
+import Link from "next/link";
 
 const Header = () => {
   return (
     <header className="header">
-      <a className="header__logo" href="#" title="Домашняя страница">
+      <Link className="header__logo" href="/" title="Домашняя страница">
         <img src="/assets/logo.svg" alt="Логотип сайта" />
-      </a>
+      </Link>
       <nav className="nav">
         <ul className="nav__list">
           <li className="nav__item">

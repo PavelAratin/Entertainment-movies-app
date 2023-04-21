@@ -1,15 +1,30 @@
+import Image from "next/image";
 import { getApiUrl } from "@/utils/utilsApiMarvelUrl";
+import { thumbnailPathChange } from "@/utils/utilsApiMarvelUrl";
+
 
 const MoveDetail = ({ characterDetail }) => {
-  console.log("detail",characterDetail.data.results[0].name);
+  console.log("detail", characterDetail.data.results[0]);
   return (
     <div className="move-detail">
       <div className="move-detail__imgbox">
-        <img src="#" alt="#" />
+        <Image
+          width={600}
+          height={600}
+          layout="instrinsic"
+          src={thumbnailPathChange(characterDetail.data.results[0].thumbnail.path) + '.' + characterDetail.data.results[0].thumbnail.extension}
+          alt="#"
+        />
       </div>
       <div className="move-detail__content">
-        <h1 className="title-h1">{characterDetail.data.results[0].name}</h1>
-        <p className="move-detail__description">информация о фильме</p>
+        <h1 className="title-h2">{characterDetail.data.results[0].name}</h1>
+        <p className="move-detail__description">{characterDetail.data.results[0].description !== "" ? characterDetail.data.results[0].description : "Данные не получены"}</p>
+        <ul className="move-detail__list">
+          <li className="move-detail__item">Comics:</li>
+          {characterDetail.data.results[0].comics.items.map((comics) => (
+            <li key={comics.name} className="move-detail__item">{comics.name}</li>
+          ))}
+        </ul>
       </div>
     </div>
   )
@@ -17,8 +32,8 @@ const MoveDetail = ({ characterDetail }) => {
 
 export async function getStaticProps(context) {
   const id = context.params.id
-  console.log('id',id);
-  
+  console.log('id', id);
+
   const resCharacterDetail = await fetch(getApiUrl(id))
   const dataCharacterDetail = await resCharacterDetail.json();
   return {
@@ -31,7 +46,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const marvelCharactersRes = await fetch(getApiUrl())
   const marvelCharactersData = await marvelCharactersRes.json();
-  console.log('marvelCharactersData',marvelCharactersData);
+  console.log('marvelCharactersData', marvelCharactersData);
   const paths = marvelCharactersData.data.results.map((marvelCharacter) => (
     { params: { id: marvelCharacter.id.toString() } }
   ))

@@ -1,0 +1,20 @@
+@import 'variables';
+.move-detail{
+  display: flex;
+  gap: 30px;
+  img{
+    border-radius: 10px;
+  }
+  &__description{
+    color: $color-white;
+    margin-bottom: 20px;
+  }
+  &__item{
+    color: $color-white;
+    padding: 5px 0;
+    &:first-child{
+      font-size: $font-size-heading-m;
+      font-weight: 600;
+    }
+  }
+}
