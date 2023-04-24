@@ -1,7 +1,7 @@
 
 import KinopoiskSection from "@/components/KinopoiskSection";
 import MarvelSection from "@/components/MarvelSection";
-import { getApiUrl } from "@/utils/utilsApiMarvelUrl";
+import { getApiUrl } from "@/utils/utils";
 import React from "react";
 
 export default function Home({ dataMarvelCharacters, kinopoiskFilmData }) {

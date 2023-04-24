@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { thumbnailPathChange } from "@/utils/utilsApiMarvelUrl";
+import { thumbnailPathChange } from "@/utils/utils";
 const CardMarvel = ({ marvelCharacter }) => {
   return (
     <div className="card-movie">

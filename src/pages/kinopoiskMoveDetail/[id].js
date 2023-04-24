@@ -1,7 +1,9 @@
 import Image from "next/image";
-const KinopoiskMovedetail = ({kinopoiskMoveDetail}) => {
-  console.log('kinopoiskMoveDetail',kinopoiskMoveDetail);
-  
+import { ageRatingMovieChange } from "@/utils/utils";
+const KinopoiskMovedetail = ({ kinopoiskMoveDetail }) => {
+  console.log('kinopoiskMoveDetail', kinopoiskMoveDetail);
+  ageRatingMovieChange(kinopoiskMoveDetail.ratingAgeLimits)
+
   return (
     <div className="move-detail">
       <div className="move-detail__imgbox">
@@ -13,20 +15,20 @@ const KinopoiskMovedetail = ({kinopoiskMoveDetail}) => {
         />
       </div>
       <div className="move-detail__content">
-        <h1 className="title-h2">{kinopoiskMoveDetail.nameOriginal ? kinopoiskMoveDetail.nameOriginal : kinopoiskMoveDetail.nameRu }</h1>
+        <h1 className="title-h2">{kinopoiskMoveDetail.nameOriginal ? kinopoiskMoveDetail.nameOriginal : kinopoiskMoveDetail.nameRu}</h1>
         {/* <p className="move-detail__description">{characterDetail.data.results[0].description !== "" ? characterDetail.data.results[0].description : "Данные не получены"}</p> */}
-        <p className="move-detail__description">Возрастной рйтинг: {kinopoiskMoveDetail.ratingAgeLimits}</p>
-        <p className="move-detail__rating-imdb"><span>Рейтинг IMDB:</span>: {kinopoiskMoveDetail.ratingAgeLimits}</p>
+        <p className="move-detail__description">Возрастной рйтинг: {ageRatingMovieChange(kinopoiskMoveDetail.ratingAgeLimits).map((num) => num)}</p>
+        <p className="move-detail__rating-imdb"><span>Рейтинг IMDB:</span>: {kinopoiskMoveDetail.ratingImdb}</p>
         <ul className="move-detail__list">
           <li className="move-detail__item">Genres:</li>
-          {kinopoiskMoveDetail.genres.map((genre,index) => (
-            <li key={genre.index} className="move-detail__item">{genre.genre}</li>
+          {kinopoiskMoveDetail.genres.map((genre, index) => (
+            <li key={index} className="move-detail__item">{genre.genre}</li>
           ))}
         </ul>
         <ul className="move-detail__list">
           <li className="move-detail__item">Countries:</li>
-          {kinopoiskMoveDetail.countries.map((country,index) => (
-            <li key={country.index} className="move-detail__item">{country.country}</li>
+          {kinopoiskMoveDetail.countries.map((country, index) => (
+            <li key={index} className="move-detail__item">{country.country}</li>
           ))}
         </ul>
       </div>
@@ -59,8 +61,8 @@ export async function getStaticPaths() {
     },
   });
   const kinopoiskFilmData = await kinopoiskFilmRes.json();
-  console.log('kinopoiskFilmData',kinopoiskFilmData);
-   
+  console.log('kinopoiskFilmData', kinopoiskFilmData);
+
   const paths = kinopoiskFilmData.items.map((kinopoiskMove) => (
     { params: { id: kinopoiskMove.kinopoiskId.toString() } }
   ))

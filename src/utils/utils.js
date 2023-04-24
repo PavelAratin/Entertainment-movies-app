@@ -4,10 +4,10 @@ const getApiUrl = (id) => {
   const publicKey = '75f168664512569cfa9ecac9699ce09e';
   const timestamp = new Date().toISOString()
   const hash = md5(timestamp + privateKey + publicKey)
-  if(id){
+  if (id) {
     const apiCharacterFromId = `https://gateway.marvel.com/v1/public/characters/${id}?orderBy=name&limit=50&ts=`;
     const apiUrlID = apiCharacterFromId + timestamp + "&apikey=" + publicKey + "&hash=" + hash;
-    return apiUrlID;  
+    return apiUrlID;
   }
   const apiWithoutId = "https://gateway.marvel.com/v1/public/characters?orderBy=name&limit=50&ts=";
   const apiUrlWithoutID = apiWithoutId + timestamp + "&apikey=" + publicKey + "&hash=" + hash;
@@ -19,4 +19,17 @@ const thumbnailPathChange = (thumbnailPath) => {
   return thumbnailPathHTTPS;
 }
 
-export {getApiUrl,thumbnailPathChange}
+const ageRatingMovieChange = (ageRating) => {
+  let arrNumRating = ageRating.match(/(-?\d+(\.\d+)?)/g).map(v => +v);
+  const arrComingOfAge = arrNumRating.map((num) => {
+    if (num < 18) {
+      return num
+    }
+    if (num >= 18) {
+      return '+' + num
+    }
+  })
+  return arrComingOfAge
+}
+
+export { getApiUrl, thumbnailPathChange, ageRatingMovieChange }

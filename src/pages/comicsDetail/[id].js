@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { getApiUrl } from "@/utils/utilsApiMarvelUrl";
-import { thumbnailPathChange } from "@/utils/utilsApiMarvelUrl";
+import { getApiUrl } from "@/utils/utils";
+import { thumbnailPathChange } from "@/utils/utils";
 
 
 const MoveDetail = ({ characterDetail }) => {
