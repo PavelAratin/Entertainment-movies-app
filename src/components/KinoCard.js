@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 const KinoCard = ({kino}) => {
   return (
     <div className="card-movie">
@@ -12,9 +13,9 @@ const KinoCard = ({kino}) => {
         </Image>
       </div>
       <div className="card-movie__content">
-        <a href="#">
+        <Link href={`/kinopoiskMoveDetail/${kino.kinopoiskId}`}>
           <h3 className="title-h3 card-movie__title">{kino.nameOriginal ? kino.nameOriginal : kino.nameRu }</h3>
-        </a>
+        </Link>
       </div>
       <span className="card-movie__favorites">
         <svg width="12" height="14" xmlns="http://www.w3.org/2000/svg">

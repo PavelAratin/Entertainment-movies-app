@@ -17,4 +17,11 @@
       font-weight: 600;
     }
   }
+  &__rating-imdb{
+    color: $color-white;
+    span{
+      font-size: $font-size-heading-m;
+      font-weight: 600;
+    }
+  }
 }

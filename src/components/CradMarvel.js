@@ -24,7 +24,7 @@ const CardMarvel = ({ marvelCharacter }) => {
             <p className="card-movie__age-restrictions">TV Series</p>
           </li>
         </ul> */}
-        <Link href={`/moveDetail/${marvelCharacter.id}`}>
+        <Link href={`/comicsDetail/${marvelCharacter.id}`}>
           <h3 className="title-h3 card-movie__title">{marvelCharacter.name}</h3>
         </Link>
       </div>
