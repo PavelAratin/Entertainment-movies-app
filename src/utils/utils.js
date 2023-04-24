@@ -20,16 +20,19 @@ const thumbnailPathChange = (thumbnailPath) => {
 }
 
 const ageRatingMovieChange = (ageRating) => {
-  let arrNumRating = ageRating.match(/(-?\d+(\.\d+)?)/g).map(v => +v);
-  const arrComingOfAge = arrNumRating.map((num) => {
-    if (num < 18) {
-      return num
-    }
-    if (num >= 18) {
-      return '+' + num
-    }
-  })
-  return arrComingOfAge
+  if(ageRating != null){
+    let arrNumRating = ageRating.match(/(-?\d+(\.\d+)?)/g).map(v => +v);
+    const arrComingOfAge = arrNumRating.map((num) => {
+      if (num < 18) {
+        return num
+      }
+      if (num >= 18) {
+        return '+' + num
+      }
+    })
+    return arrComingOfAge
+  }
+  return ageRating;
 }
 
 export { getApiUrl, thumbnailPathChange, ageRatingMovieChange }
