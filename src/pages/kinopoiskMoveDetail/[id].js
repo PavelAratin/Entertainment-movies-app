@@ -17,7 +17,7 @@ const KinopoiskMovedetail = ({ kinopoiskMoveDetail }) => {
       <div className="move-detail__content">
         <h1 className="title-h2">{kinopoiskMoveDetail.nameOriginal ? kinopoiskMoveDetail.nameOriginal : kinopoiskMoveDetail.nameRu}</h1>
         {/* <p className="move-detail__description">{characterDetail.data.results[0].description !== "" ? characterDetail.data.results[0].description : "Данные не получены"}</p> */}
-        <p className="move-detail__description">Возрастной рйтинг: {ageRatingMovieChange(kinopoiskMoveDetail.ratingAgeLimits).map((num) => num)}</p>
+        <p className="move-detail__description">Возрастной рйтинг: {kinopoiskMoveDetail.ratingAgeLimits ? ageRatingMovieChange(kinopoiskMoveDetail.ratingAgeLimits).map((num) => num): 'Нет возрастного рейтинга'}</p>
         <p className="move-detail__rating-imdb"><span>Рейтинг IMDB:</span>: {kinopoiskMoveDetail.ratingImdb}</p>
         <ul className="move-detail__list">
           <li className="move-detail__item">Genres:</li>
