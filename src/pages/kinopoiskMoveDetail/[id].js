@@ -8,10 +8,9 @@ const KinopoiskMovedetail = ({ kinopoiskMoveDetail }) => {
     <div className="move-detail">
       <div className="move-detail__imgbox">
         <Image
-          width={600}
-          height={600}
           src={kinopoiskMoveDetail.posterUrl}
           alt="#"
+          fill
         />
       </div>
       <div className="move-detail__content">

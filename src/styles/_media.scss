@@ -1,0 +1,40 @@
+@media screen and (max-width:950px) {
+  .site-container{
+    flex-direction: column;
+  }
+  .header{
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    &__logo{
+      margin-bottom: 0;
+    }
+  }
+  .nav{
+    margin-bottom: 0;
+    &__list{
+      display: flex;
+      align-items: center;
+    }
+    &__item:not(:last-child){
+      margin-bottom: 0;
+      margin-right: 30px;
+    }
+  }
+  main{
+    width: 100%;
+  }
+  .move-detail{
+    flex-direction: column;
+    &__imgbox,
+    &__content{
+      width: 100%;
+    }  
+  }  
+}
+
+@media screen and (max-width:500px) {
+  .move-detail__imgbox{
+    height: 300px;
+  }
+}

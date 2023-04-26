@@ -2,9 +2,17 @@
 .move-detail{
   display: flex;
   gap: 30px;
+  &__imgbox{
+    position: relative;
+    width: 50%;
+    height: 600px;
+  }
   img{
     border-radius: 10px;
   }
+  &__content{
+    width: 50%;
+  }  
   &__description{
     color: $color-white;
     margin-bottom: 20px;
