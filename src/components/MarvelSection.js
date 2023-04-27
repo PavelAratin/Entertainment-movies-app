@@ -10,14 +10,12 @@ const MarvelSection = ({ dataMarvelCharacters }) => {
   useEffect(() => {
     const changeWindowWidth = () => {
       setWindowWidth(window.innerWidth);
-      console.log(window.innerWidth)
     };
     window.addEventListener('resize', changeWindowWidth)
     changeWindowWidth();
     //перестаем считать ширину окна, при размонтировании компонента
     return () => window.removeEventListener('resize', changeWindowWidth)
   }, [])
-  console.log(windowWidth);
   
   return (
     <section className='trending'>

@@ -1,7 +1,6 @@
 import KinoCard from "./KinoCard";
 
 const KinopoiskSection = ({ kinopoiskFilmData }) => {
-  console.log('kinopoiskFilmData', kinopoiskFilmData.items);
   return (
     <section className='kino-section'>
       <h2 className="title-h2">Kinopoiks move</h2>
