@@ -6,6 +6,8 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    position: relative;
+    height: auto;
     &__logo{
       margin-bottom: 0;
     }
@@ -36,5 +38,12 @@
 @media screen and (max-width:500px) {
   .move-detail__imgbox{
     height: 300px;
+  }
+  .form{
+    gap: 10px;
+  }
+  .form input{
+    font-size: 16px;
+    padding: 10px;
   }
 }

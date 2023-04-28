@@ -10,6 +10,7 @@ body{
   font-weight: 300;
   font-size: $font-size-body-m;
   background-color: $color-dark-blue;
+  min-width: 340px;
 
 }
 h1,h2,h3,h4,h5,h6{
@@ -44,6 +45,7 @@ input{
 }
 main{
   width: calc(100% - 120px);
+  margin-left: auto;
 }
 section{
   margin-bottom: 30px;
