@@ -20,7 +20,7 @@ const thumbnailPathChange = (thumbnailPath) => {
 }
 
 const ageRatingMovieChange = (ageRating) => {
-  if(ageRating != null){
+  if (ageRating != null) {
     let arrNumRating = ageRating.match(/(-?\d+(\.\d+)?)/g).map(v => +v);
     const arrComingOfAge = arrNumRating.map((num) => {
       if (num < 18) {
@@ -35,4 +35,9 @@ const ageRatingMovieChange = (ageRating) => {
   return ageRating;
 }
 
-export { getApiUrl, thumbnailPathChange, ageRatingMovieChange }
+const getValidNameCharacterMarvel = (marvelCharacterName) => {
+  const validCharacterName = marvelCharacterName.replace(/ /g, '').toLowerCase();
+  return validCharacterName;
+}
+
+export { getApiUrl, thumbnailPathChange, ageRatingMovieChange,getValidNameCharacterMarvel }

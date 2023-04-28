@@ -1,39 +1,25 @@
-
-import CardMarvel from "@/components/CradMarvel";
+import React,{ useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+///
 import KinopoiskSection from "@/components/KinopoiskSection";
 import MarvelSection from "@/components/MarvelSection";
-import { getApiUrl } from "@/utils/utils";
-import React from "react";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import SearchResult from "@/components/SearchResult";
+///
+import { getApiUrl, getValidNameCharacterMarvel } from "@/utils/utils";
 
 export default function Home({ dataMarvelCharacters, kinopoiskFilmData }) {
   const searchValue = useSelector((state) => state.siteSearch.searchValue);
-  const [searchValueFromStore, setSearchValueFromStore] = useState(searchValue)
-  const [searchValueState, setSearchValueState] = useState([]);
+  const [searchValueStateFilter, setSearchValueStateFilter] = useState([]);
 
   useEffect(() => {
-    setSearchValueState(dataMarvelCharacters.data.results.filter((marvelCharacter) => marvelCharacter.name.replace(/ /g, '').toLowerCase().includes(searchValue)))
-    setSearchValueFromStore(searchValue)
+    setSearchValueStateFilter(dataMarvelCharacters.data.results.filter((marvelCharacter) => getValidNameCharacterMarvel(marvelCharacter.name).includes(searchValue === '' ? false : searchValue)))
   }, [searchValue]);
-  console.log(searchValueFromStore);
-
-  // console.log(searchValueState === true);
-  // console.log(searchValueState);
 
   return (
     <React.Fragment>
-      {searchValueFromStore === '' || searchValueFromStore === null ? '' :
-        <React.Fragment>
-          <h2 className="title-h2">Search Result</h2>
-          <div className="kino-section__content">
-          {searchValueState.map((marvelCharacter, index) => <CardMarvel key={marvelCharacter.id} marvelCharacter={marvelCharacter}></CardMarvel>)}А
-          </div>
-        </React.Fragment>}
-      <React.Fragment>
-        <MarvelSection dataMarvelCharacters={dataMarvelCharacters}></MarvelSection>
-        <KinopoiskSection kinopoiskFilmData={kinopoiskFilmData}></KinopoiskSection>
-      </React.Fragment>
+      {searchValueStateFilter.length === 0 ? '' : <SearchResult searchValueStateFilter={searchValueStateFilter}></SearchResult>}
+      <MarvelSection dataMarvelCharacters={dataMarvelCharacters}></MarvelSection>
+      <KinopoiskSection kinopoiskFilmData={kinopoiskFilmData}></KinopoiskSection>
     </React.Fragment>
   )
 }
