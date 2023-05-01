@@ -1,0 +1,32 @@
+@import 'variables';
+.login-auth-list{
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+  right: -220px;
+  z-index: 3;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: $color-semi-dark-blue;
+  display: none;
+  &.active{
+    display: block;
+  }
+  &__item:not(:last-child){
+    margin-bottom: 20px;
+  }
+  &__button{
+    font-family: "Outfit", sans-serif;
+    background-color: $color-red;
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    color: $color-white;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    &:hover{
+      background-color: $color-white;
+      color: $color-semi-dark-blue;
+    }
+  }
+}

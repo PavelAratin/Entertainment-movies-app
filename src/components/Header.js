@@ -1,6 +1,12 @@
 import Link from "next/link";
+import LoginAuthBlock from "./loginAuthBlock/LoginAuthBlock";
+import { useState } from "react";
 
 const Header = () => {
+  const [loginAuthBlockIsVisible, setLoginAuthBlockIsVisible] = useState(false);
+  const loginAuthHandler = () => {
+    setLoginAuthBlockIsVisible(previouseState => !previouseState)
+  }
   return (
     <header className="header">
       <Link className="header__logo" href="/" title="Домашняя страница">
@@ -10,7 +16,7 @@ const Header = () => {
         <ul className="nav__list">
           <li className="nav__item">
             <Link className="" href="/constructionPage/ConstructionPage">
-              <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 0H1C.4 0 0 .4 0 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1Zm0 11H1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1ZM19 0h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1Zm0 11h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1Z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M8 0H1C.4 0 0 .4 0 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1Zm0 11H1c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1ZM19 0h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V1c0-.6-.4-1-1-1Zm0 11h-7c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-7c0-.6-.4-1-1-1Z" /></svg>
             </Link>
           </li>
           <li className="nav__item">
@@ -25,9 +31,12 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <button className="header__button">
+      <button
+        onClick={loginAuthHandler}
+        className="header__button">
         <img src="/assets/user.png" alt="avatar" />
       </button>
+      <LoginAuthBlock loginAuthBlockIsVisible={loginAuthBlockIsVisible}></LoginAuthBlock>
     </header>
   )
 }
