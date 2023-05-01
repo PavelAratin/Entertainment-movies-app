@@ -1,14 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const siteSearchSlice = createSlice({
-  name: 'siteSearh',
+  name: 'siteSearch',
   initialState: {
     searchValue: null
   },
   reducers: {
     getInputSearch(state, action) {
-      // console.log('state', state);
-      // console.log('action', action);
       state.searchValue = action.payload.toLowerCase()
     }
   }
