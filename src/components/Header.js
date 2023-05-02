@@ -1,9 +1,20 @@
 import Link from "next/link";
 import LoginAuthBlock from "./loginAuthBlock/LoginAuthBlock";
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import Favorites from "./favorites/Favorites";
 
 const Header = () => {
   const [loginAuthBlockIsVisible, setLoginAuthBlockIsVisible] = useState(false);
+  const [favoriteDisplay, setFavoriteDisplay] = useState(false);
+  const inFavoriteLength = useSelector((state) => state.favoriteMovie.favorites.length);
+  useEffect(() => {
+    if (inFavoriteLength > 0) {
+      setFavoriteDisplay(true)
+    } else {
+      setFavoriteDisplay(false)
+    }
+  }, [inFavoriteLength, favoriteDisplay])
   const loginAuthHandler = () => {
     setLoginAuthBlockIsVisible(previouseState => !previouseState)
   }
@@ -31,6 +42,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
+      <Favorites favoriteDisplay={favoriteDisplay} inFavoriteLength={inFavoriteLength}></Favorites>
       <button
         onClick={loginAuthHandler}
         className="header__button">

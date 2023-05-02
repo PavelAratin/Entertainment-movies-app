@@ -69,6 +69,11 @@ section{
 
 .nav{
   margin-bottom: 30px;
+  &__list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   &__item:not(:last-child){
     margin-bottom: 30px;
   }

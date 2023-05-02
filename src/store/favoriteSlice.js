@@ -6,12 +6,18 @@ const favoriteSlice = createSlice({
     favorites: []
   },
   reducers: {
-    addFavoriteAction(state, action) {
-      console.log('state',state);
-      console.log('action',action);
+    toggleFavoriteAction(state, action) {
+      if (state.favorites.some(favorite => favorite.movieId === action.payload)) {
+        state.favorites = state.favorites.filter(favorite => favorite.movieId !== action.payload)
+      }
+      else {
+        state.favorites.push({
+          movieId: action.payload
+        })
+      }
     }
   }
 })
 
-export const { addFavoriteAction } = favoriteSlice.actions;
+export const { toggleFavoriteAction } = favoriteSlice.actions;
 export default favoriteSlice.reducer;
