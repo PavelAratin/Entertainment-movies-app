@@ -11,12 +11,16 @@
     &__logo{
       margin-bottom: 0;
     }
+    &__button{
+      margin-top: 0;
+    }
   }
   .nav{
     margin-bottom: 0;
     &__list{
       display: flex;
       align-items: center;
+      flex-direction: row;
     }
     &__item:not(:last-child){
       margin-bottom: 0;
