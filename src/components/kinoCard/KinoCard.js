@@ -9,6 +9,7 @@ const KinoCard = ({kino}) => {
           src={kino.posterUrl}
           fill
           alt="#"
+          sizes="100vw"
         >
         </Image>
       </div>

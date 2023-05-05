@@ -1,4 +1,4 @@
-import KinoCard from "./KinoCard";
+import KinoCard from "../kinoCard/KinoCard";
 
 const KinopoiskSection = ({ kinopoiskFilmData }) => {
   return (

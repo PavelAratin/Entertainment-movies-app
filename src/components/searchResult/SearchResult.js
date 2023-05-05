@@ -1,4 +1,4 @@
-import CardMarvel from "./CradMarvel";
+import CardMarvel from "../cardMarvel/CradMarvel";
 const SearchResult = ({ searchValueStateFilter }) => {
   return (
     <section>

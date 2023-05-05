@@ -1,6 +1,6 @@
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import CardMarvel from './CradMarvel';
+import CardMarvel from '../cardMarvel/CradMarvel';
 import 'swiper/css';
 import { useEffect, useState } from 'react';
 
@@ -23,8 +23,6 @@ const MarvelSection = ({ dataMarvelCharacters }) => {
       <Swiper
         spaceBetween={20}
         slidesPerView={windowWidth >= 1250 ? 5.5 : '' || windowWidth >= 768 ? 2.5 : '' || windowWidth <= 768 ? 1.5 : ''  } 
-      // onSlideChange={() => console.log('slide change')}
-      // onSwiper={(swiper) => console.log(swiper)}
       >
         {dataMarvelCharacters.data.results.map((marvelCharacter) => (
           <SwiperSlide key={marvelCharacter.id}>

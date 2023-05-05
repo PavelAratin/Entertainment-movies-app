@@ -1,9 +1,9 @@
 import React,{ useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 ///
-import KinopoiskSection from "@/components/KinopoiskSection";
-import MarvelSection from "@/components/MarvelSection";
-import SearchResult from "@/components/SearchResult";
+import KinopoiskSection from "@/components/kinopoiskSection/KinopoiskSection";
+import MarvelSection from "@/components/marvelSection/MarvelSection";
+import SearchResult from "@/components/searchResult/SearchResult";
 ///
 import { getApiUrl, getValidNameCharacterMarvel } from "@/utils/utils";
 

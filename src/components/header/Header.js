@@ -1,8 +1,8 @@
 import Link from "next/link";
-import LoginAuthBlock from "./loginAuthBlock/LoginAuthBlock";
+import LoginAuthBlock from "../loginAuthBlock/LoginAuthBlock";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import Favorites from "./favorites/Favorites";
+import Favorites from "../favorites/Favorites";
 
 const Header = () => {
   const [loginAuthBlockIsVisible, setLoginAuthBlockIsVisible] = useState(false);
