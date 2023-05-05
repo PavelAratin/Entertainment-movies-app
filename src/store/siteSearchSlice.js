@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getValidNameCharacter } from "@/utils/utils";
 
 const siteSearchSlice = createSlice({
   name: 'siteSearch',
@@ -7,7 +8,7 @@ const siteSearchSlice = createSlice({
   },
   reducers: {
     getInputSearch(state, action) {
-      state.searchValue = action.payload.toLowerCase()
+      state.searchValue = getValidNameCharacter(action.payload).toLowerCase()
     }
   }
 })

@@ -16,7 +16,6 @@ const CardMarvel = ({ marvelCharacter }) => {
           src={thumbnailPathChange(marvelCharacter.thumbnail.path) + '.' + marvelCharacter.thumbnail.extension}
           alt={marvelCharacter.name && "Alter Text"}
           fill
-          sizes="100vw"
           >
         </Image>
       </div>

@@ -35,9 +35,13 @@ const ageRatingMovieChange = (ageRating) => {
   return ageRating;
 }
 
-const getValidNameCharacterMarvel = (marvelCharacterName) => {
-  const validCharacterName = marvelCharacterName.replace(/ /g, '').toLowerCase();
-  return validCharacterName;
+const getValidNameCharacter = (characterName) => {
+  if (characterName !== null && characterName !== undefined) {
+    const validCharacterName = characterName.replace(/ /g, '').toLowerCase();
+    return validCharacterName;
+  } else {
+    return 'название фильма не получено'
+  }
 }
 
-export { getApiUrl, thumbnailPathChange, ageRatingMovieChange,getValidNameCharacterMarvel }
+export { getApiUrl, thumbnailPathChange, ageRatingMovieChange, getValidNameCharacter }

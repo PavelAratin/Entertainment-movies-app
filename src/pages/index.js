@@ -1,23 +1,36 @@
-import React,{ useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 ///
 import KinopoiskSection from "@/components/kinopoiskSection/KinopoiskSection";
 import MarvelSection from "@/components/marvelSection/MarvelSection";
 import SearchResult from "@/components/searchResult/SearchResult";
 ///
-import { getApiUrl, getValidNameCharacterMarvel } from "@/utils/utils";
+import { getApiUrl, getValidNameCharacter } from "@/utils/utils";
 
 export default function Home({ dataMarvelCharacters, kinopoiskFilmData }) {
   const searchValue = useSelector((state) => state.siteSearch.searchValue);
-  const [searchValueStateFilter, setSearchValueStateFilter] = useState([]);
+  //записываем в стейт значение из редкс
+  const [searchValueState,setSearchValueState] = useState(searchValue)
+  const [searchValueStateFilterMarvel, setSearchValueStateFilterMarvel] = useState([]);
+  const [searchValueStateFilterKinopoisk, setSearchValueStateFilterKinopoisk] = useState([]);
+  const [displaySearch, setDisplaySearch] = useState(false);
 
   useEffect(() => {
-    setSearchValueStateFilter(dataMarvelCharacters.data.results.filter((marvelCharacter) => getValidNameCharacterMarvel(marvelCharacter.name).includes(searchValue === '' ? false : searchValue)))
-  }, [searchValue]);
+    if(searchValueStateFilterMarvel.length > 0 || searchValueStateFilterKinopoisk.length > 0){
+      setDisplaySearch(true)
+    }else{
+      setDisplaySearch(false)
+    }
+
+    setSearchValueState(searchValue)
+    
+    setSearchValueStateFilterMarvel(dataMarvelCharacters.data.results.filter((marvelCharacter) => getValidNameCharacter(marvelCharacter.name).includes(searchValue === '' ? false : searchValue)))
+    setSearchValueStateFilterKinopoisk(kinopoiskFilmData.items.filter((kinopoiskFilm) => getValidNameCharacter(kinopoiskFilm.nameOriginal).includes(searchValue === '' ? false : searchValue)))
+  }, [searchValue,searchValueState]);
 
   return (
     <React.Fragment>
-      {searchValueStateFilter.length === 0 ? '' : <SearchResult searchValueStateFilter={searchValueStateFilter}></SearchResult>}
+      {displaySearch && <SearchResult searchValueStateFilterMarvel={searchValueStateFilterMarvel} searchValueStateFilterKinopoisk={searchValueStateFilterKinopoisk}></SearchResult> }
       <MarvelSection dataMarvelCharacters={dataMarvelCharacters}></MarvelSection>
       <KinopoiskSection kinopoiskFilmData={kinopoiskFilmData}></KinopoiskSection>
     </React.Fragment>
