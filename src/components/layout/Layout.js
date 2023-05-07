@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../header/Header";
-import Form from "../form/Form";
+import Form from "../form/FormHeader";
 
 const Layout = ({ children }) => {
   return (

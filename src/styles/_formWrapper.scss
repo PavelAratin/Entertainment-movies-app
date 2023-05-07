@@ -1,0 +1,21 @@
+@import 'variables';
+.form-wrapper{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  background-color: $color-dark-blue;
+  padding: 0 20px;
+  min-width: 340px;
+  &__inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}

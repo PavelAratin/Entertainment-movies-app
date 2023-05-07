@@ -3,6 +3,7 @@ import LoginAuthBlock from "../loginAuthBlock/LoginAuthBlock";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import Favorites from "../favorites/Favorites";
+import Logo from "../logo/Logo";
 
 const Header = () => {
   const [loginAuthBlockIsVisible, setLoginAuthBlockIsVisible] = useState(false);
@@ -20,9 +21,7 @@ const Header = () => {
   }
   return (
     <header className="header">
-      <Link className="header__logo" href="/" title="Домашняя страница">
-        <img src="/assets/logo.svg" alt="Логотип сайта" />
-      </Link>
+      <Logo inHeader="header__logo"></Logo>
       <nav className="nav">
         <ul className="nav__list">
           <li className="nav__item">

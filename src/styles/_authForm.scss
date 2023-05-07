@@ -1,0 +1,53 @@
+.auth-form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: $color-semi-dark-blue;
+  padding: 10px;
+  border-radius: 10px;
+  &__input{
+    font-weight: 600;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $color-greyish-blue;
+    padding: 10px;
+    outline: none;
+    color: $color-white;
+    font-size: 18px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    &:focus,
+    &:hover{
+      border-bottom-color: $color-white;
+    }
+  }
+  &__button{
+    border: none;
+    border-radius: 5px;
+    background-color: $color-red;
+    padding: 10px;
+    color: $color-white;
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    &:hover{
+      color: $color-dark-blue;
+      background-color: $color-white;
+    }
+  }
+  &__description{
+    text-align: center;
+    color: $color-white;
+    span{
+      color: $color-red;
+      cursor: pointer;
+      transform: color 0.2s linear;
+      &:hover{
+        color: $color-white;
+      }
+    }
+  }
+}

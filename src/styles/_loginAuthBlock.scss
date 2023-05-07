@@ -15,7 +15,7 @@
   &__item:not(:last-child){
     margin-bottom: 20px;
   }
-  &__button{
+  &__link{
     font-family: "Outfit", sans-serif;
     background-color: $color-red;
     width: 100%;
@@ -25,6 +25,7 @@
     cursor: pointer;
     transition: all 0.2s linear;
     font-size: 18px;
+    text-align: center;
     &:hover{
       background-color: $color-white;
       color: $color-semi-dark-blue;

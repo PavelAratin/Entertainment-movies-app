@@ -6,6 +6,9 @@ import MarvelSection from "@/components/marvelSection/MarvelSection";
 import SearchResult from "@/components/searchResult/SearchResult";
 ///
 import { getApiUrl, getValidNameCharacter } from "@/utils/utils";
+import AuthFormWrapper from "@/components/authFormWrapper/AuthFormWrapper";
+import AuthForm from "@/components/authForm/AuthForm";
+import Logo from "@/components/logo/Logo";
 
 export default function Home({ dataMarvelCharacters, kinopoiskFilmData }) {
   const searchValue = useSelector((state) => state.siteSearch.searchValue);
@@ -23,7 +26,7 @@ export default function Home({ dataMarvelCharacters, kinopoiskFilmData }) {
     }
 
     setSearchValueState(searchValue)
-    
+   
     setSearchValueStateFilterMarvel(dataMarvelCharacters.data.results.filter((marvelCharacter) => getValidNameCharacter(marvelCharacter.name).includes(searchValue === '' ? false : searchValue)))
     setSearchValueStateFilterKinopoisk(kinopoiskFilmData.items.filter((kinopoiskFilm) => getValidNameCharacter(kinopoiskFilm.nameOriginal).includes(searchValue === '' ? false : searchValue)))
   }, [searchValue,searchValueState]);
