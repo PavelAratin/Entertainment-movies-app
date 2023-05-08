@@ -41,7 +41,8 @@
   &__description{
     text-align: center;
     color: $color-white;
-    span{
+    a{
+      display: inline-block;
       color: $color-red;
       cursor: pointer;
       transform: color 0.2s linear;

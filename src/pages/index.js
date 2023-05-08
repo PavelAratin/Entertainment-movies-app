@@ -6,11 +6,10 @@ import MarvelSection from "@/components/marvelSection/MarvelSection";
 import SearchResult from "@/components/searchResult/SearchResult";
 ///
 import { getApiUrl, getValidNameCharacter } from "@/utils/utils";
-import AuthFormWrapper from "@/components/authFormWrapper/AuthFormWrapper";
-import AuthForm from "@/components/authForm/AuthForm";
-import Logo from "@/components/logo/Logo";
+//
 
 export default function Home({ dataMarvelCharacters, kinopoiskFilmData }) {
+  console.log(process.env);
   const searchValue = useSelector((state) => state.siteSearch.searchValue);
   //записываем в стейт значение из редкс
   const [searchValueState,setSearchValueState] = useState(searchValue)
